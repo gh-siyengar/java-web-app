@@ -1,5 +1,9 @@
 pipeline {
-  agent { label 'linux' }
+  agent {
+      ecs {
+          inheritFrom 'terraform'
+      }
+  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
